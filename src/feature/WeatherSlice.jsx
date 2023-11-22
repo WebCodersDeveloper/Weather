@@ -1,34 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { useEffect, useReducer } from 'react';
-import reducer from '../components/reducer';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
 
-const initialState = {
-  cartItems: [],
-  amount: 0,
-  total: 10,
-  isLoading: true,
-  dataBase: getData,
-};
-const getData = () => {
-  let url = 'https://api.weatherapi.com/v1/current.json?key=039bd13ef4a1452a848141113230111&q=Toshkent&aqi=no'
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const fetchData = async () => {
-    dispatch({ type: "LOADING" });
-    const resp = await fetch(url);
-    const data = await resp.json();
-    dispatch({ type: "DISPLAY", payload: data });
-  };
+// const initialState = {
+//   cartItems: [],
+//   amount: 0,
+//   total: 10,
+//   isLoading: true,
+//   dataBase: getData,
+// };
 
-  if (state.loading) {
-    return <LoadingAnimation />
-}
-};
+export const getData = createAsyncThunk('getData', async (payload) => {
+  return fetch('https://api.weatherapi.com/v1/current.json?key=039bd13ef4a1452a848141113230111&q=Toshkent&aqi=no')
+  .then((res) => res.json())
+})
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState,
+  initialState: {weather: [], status: ''},
+  extraReducers: {
+    [getData.pending] : (state, action) =>{
+      state.status = 'pending';
+    },
+    [getData.fulfilled] : (state, {payload}) =>{
+      state.status = 'succsess';
+      state.weather = payload;
+    },
+    [getData.rejected] : (state, action) =>{
+      state.status = 'failed'
+    }
+  }
 });
 
 
