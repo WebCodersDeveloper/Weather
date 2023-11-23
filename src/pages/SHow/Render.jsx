@@ -1,22 +1,29 @@
-import { useDispatch, useSelector } from "react-redux"
-import { store } from "../../store"
-import { useEffect } from "react";
-import { getData } from "../../feature/weatherSlice";
+import { useSelector, useDispatch} from 'react-redux';
+import { fetchWeather } from '../../feature/wdata';
+import { useEffect } from 'react';
+// import { store } from '../../store';
 
-
-// eslint-disable-next-line react/prop-types
 export default function Render() {
-  const Data = useSelector((store) => store.cart);
+  const {data} = useSelector((store) => store.wwdata);
   const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(getData());
-    console.log(Data,'store');
-  },[])
+
+  useEffect(() =>{
+    dispatch(fetchWeather());
+  }, [dispatch])
+  console.log(data);
   return (
-    <>
-    <div className="box">
-        <h1>heloo</h1>
+    <div>
+      <h1>Weather</h1>
+     <div className="main__container">
+      {/* {data.map((item) => {
+       
+        <div>
+          <h1>{item}</h1>
+        </div>
+       
+      })} */}
+     </div>
     </div>
-    </>
-  )
+  );
 }
+
