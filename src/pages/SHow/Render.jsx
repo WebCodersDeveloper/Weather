@@ -87,7 +87,8 @@
               <div className="info_wh">
                 <div className="wind">
                   <img src="../../../public/compas_icon.png" className="compas_IC" style={{transform: `rotate(${data.current.wind_degree}deg)`}} alt="" />
-                  <h3>{data.current.wind_kph} km/h</h3>
+                  <h3>{data.current.wind_kph} <km />
+                  <s></s></h3>
                 </div>
                 <div className="humaditiy">
                   <div className="line"></div>
