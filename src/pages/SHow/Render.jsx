@@ -89,7 +89,7 @@
               </div>
               <div className="info_wh">
                 <div className="wind">
-                  {/* <h1>salom </h1> */}
+                  <h1>salom </h1>
                   <img src="../../../public/compas_icon.png" className="compas_IC" style={{transform: `rotate(${data.current.wind_degree}deg)`}} alt="" />
                   <h3>{data.current.wind_kph} km/h</h3>
                 </div>
