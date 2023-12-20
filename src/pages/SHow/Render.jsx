@@ -42,6 +42,9 @@
       else if(text === "Blizzard"){
         document.body.style.backgroundImage = `url(https://www.icegif.com/wp-content/uploads/2023/02/icegif-1087.gif)`
       }
+      else if(text === "Fog"){
+        document.body.style.backgroundImage = `url(https://www.icegif.com/wp-content/uploads/2023/02/icegif-1087.gif)`
+      }
 
     };
 
@@ -86,6 +89,7 @@
               </div>
               <div className="info_wh">
                 <div className="wind">
+                  {/* <h1>salom </h1> */}
                   <img src="../../../public/compas_icon.png" className="compas_IC" style={{transform: `rotate(${data.current.wind_degree}deg)`}} alt="" />
                   <h3>{data.current.wind_kph} km/h</h3>
                 </div>
