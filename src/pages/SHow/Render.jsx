@@ -128,7 +128,7 @@
         </div>
     )}
         <footer>
-          <h2>- Created by Akhmadjanov -</h2>
+          <h2>- Created by Akhmadjanov -  </h2>
         </footer>
       </>
     );
