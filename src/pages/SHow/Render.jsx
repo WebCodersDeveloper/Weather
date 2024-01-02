@@ -2,9 +2,9 @@
   import { extraReducers, fetchWeather } from "../../feature/wdata";
   import { useEffect, useState } from "react";
   import { CiCloud } from "react-icons/ci";
-  import { FaSearch, FaRegEye } from "react-icons/fa";
+  import { FaSearch, FaRegEye, } from "react-icons/fa";
   import { IoManOutline } from "react-icons/io5";
-  import { FaDroplet } from "react-icons/fa6";
+  import { FaDroplet, } from "react-icons/fa6";
   import './render.scss'
   import 'leaflet/dist/leaflet.css';
 
@@ -20,32 +20,35 @@
 
     const bgChange = () => {
       if(text === "Mist"){
-        document.body.style.backgroundImage = `url(https://i.pinimg.com/originals/72/60/18/72601872bb3dcfc122f2cdb7cb9d8855.gif)`
+        document.body.style.backgroundImage = `url(https://wallpapercave.com/wp/wp4155376.jpg)`
       }
       else if(text === "Partly cloudy"){
-        document.body.style.backgroundImage = `url(https://i.gifer.com/embedded/download/XFbw.gif)`
-      } else if(text === "Sunny"){
+        document.body.style.backgroundImage = `url(https://e0.pxfuel.com/wallpapers/356/659/desktop-wallpaper-partly-cloudy-partly-cloudy.jpg)`
+      } 
+      else if(text === "Sunny"){
         document.body.style.backgroundImage = `url(https://i.pinimg.com/originals/f6/32/b0/f632b07f8ab9b2a0ccf77998c766064b.gif)`
+      }
+      else if(text === "Cloudy"){
+        document.body.style.backgroundImage = `url(https://images.pexels.com/photos/414491/pexels-photo-414491.jpeg?cs=srgb&dl=pexels-pixabay-414491.jpg&fm=jpg)`
       }
       else if(text === "Light rain"){
         document.body.style.backgroundImage = `url(https://cdn.pixabay.com/animation/2023/06/25/21/55/21-55-38-961_512.gif)`
       }
-      else if(text === "Moderate or heavy rain with thunder"){
-        document.body.style.backgroundImage = `url(https://cdn.pixabay.com/animation/2023/03/11/16/46/16-46-35-521_512.gif)`
-      }
       else if(text === "Overcast"){
-        document.body.style.backgroundImage = `url(https://i.gifer.com/embedded/download/BG5J.gif)`
+        document.body.style.backgroundImage = `url(https://images.wallpaperscraft.com/image/single/mountains_clouds_cloudy_119193_3840x2160.jpg)`
       }
       else if(text === "Light snow"){
-        document.body.style.backgroundImage = `url(https://cdn.pixabay.com/animation/2022/12/13/13/50/13-50-32-600_512.gif)`
+        document.body.style.backgroundImage = `url(https://wallpapercave.com/wp/wp2125008.jpg)`
       }
       else if(text === "Blizzard"){
         document.body.style.backgroundImage = `url(https://www.icegif.com/wp-content/uploads/2023/02/icegif-1087.gif)`
       }
       else if(text === "Fog"){
-        document.body.style.backgroundImage = `url(https://www.icegif.com/wp-content/uploads/2023/02/icegif-1087.gif)`
+        document.body.style.backgroundImage = `url(https://c4.wallpaperflare.com/wallpaper/341/560/836/cities-chicago-building-city-wallpaper-preview.jpg)`
       }
-
+      else{
+        document.body.style.backgroundImage = `url(https://i.makeagif.com/media/11-17-2015/Fz90sX.gif)`
+      }
     };
 
     const handleSearch = (e) => {
@@ -89,10 +92,10 @@
               </div>
               <div className="info_wh">
                 <div className="wind">
-                  {/* <h1>salom </h1> */}
-                  {/* <img src="../../assets/compas_icon.png" alt=""></img> */}
-                  <img src="../../assets/compas_icon.png" className="compas_IC" style={{transform: `rotate(${data.current.wind_degree}deg)`}} alt="" />
-                  <h3>{data.current.wind_kph} km/h</h3>
+                  <div className="wind_center">
+                    <span style={{transform: `rotate(${data.current.wind_degree}deg)`}}><i className="fa-solid fa-arrow-up"></i></span>
+                    <h3>{data.current.wind_kph} km/h</h3>
+                  </div>
                 </div>
                 <div className="humaditiy">
                   <div className="line"></div>
